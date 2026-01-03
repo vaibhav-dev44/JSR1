@@ -1,642 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Jungle Spring Resort</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Experience serenity and nature at Sukoon Farm Stay, the best farm stay in Gurugram. Scenic views, farm activities, and peaceful retreats.">
-    <meta name="keywords" content="farm stay, Sukoon Farm Stay, Gurugram, best farm stay, rural retreat, nature, adventure, Haryana">
-    <meta name="author" content="Sukoon Farm Stay">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+body{
+  background:#f4f6f5;
+  color:#333;
+}
 
-    <title>Sukoon Farm Stay | Best Farm Stay In Gurugram</title>
+/* HEADER */
+header{
+  background:#0b4d2e;
+  color:#fff;
+  padding:14px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+header h1{
+  font-size:18px;
+}
+.menu{
+  font-size:22px;
+  cursor:pointer;
+}
 
-    <!-- Font Awesome & Google Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* HERO */
+.hero{
+  height:220px;
+  background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+}
+.hero-card{
+  background:#ffeb3b;
+  margin:16px;
+  padding:12px;
+  border-radius:12px;
+  width:90%;
+}
+.hero-card h2{
+  font-size:16px;
+}
+.hero-card p{
+  font-size:13px;
+}
+.hero-card button{
+  margin-top:8px;
+  padding:8px 14px;
+  border:none;
+  border-radius:20px;
+  background:#2e7d32;
+  color:white;
+  cursor:pointer;
+}
 
-    <style>
-        
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #2d5016;
-            position: relative;
-        }
-        .section-title h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: #2d5016;
-            margin: 10px auto;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #2d5016;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        .btn:hover {
-            background: #1e3a0f;
-        }
+/* SECTION TITLE */
+.section-title{
+  padding:16px;
+  font-weight:bold;
+  color:#2e7d32;
+}
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d5016;
-            text-decoration: none;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-        nav ul li {
-            margin-left: 2rem;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #2d5016;
-        }
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
-        }
+/* CARDS */
+.card{
+  background:white;
+  margin:12px 16px;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+.card-body{
+  padding:12px;
+}
+.card-body h3{
+  font-size:15px;
+}
+.card-body p{
+  font-size:13px;
+  margin-top:4px;
+  color:#666;
+}
 
-        /* Hero Section with Slideshow */
-        .hero {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-        .slideshow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-        .slide.active {
-            opacity: 1;
-        }
-        .slide:nth-child(1) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipOPAqqaTKvZuLK7bMY4DbjaLBCoZX3ngu2nyzdb');
-        }
-        .slide:nth-child(2) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipP5sH4CYzGnhTjYak1s2eF2FFbrif-1x_JDBzTN');
-        }
-        .slide:nth-child(3) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipNmyJMYoUkPUy0sRFDLtPcHOs0dISluKediggnt');
-        }
-        .slide:nth-child(4) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipPTh-dgonDh0fGsBCbMVCdKh04647Gs9Tz6RZ4a');
-        }
-        .slide:nth-child(5) {
-            background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AG0ilSykoIfgm5gyOfMoKAZPon8FV-WIkYJ7f9h_MgJE21OapAQekqooisuFilZeza4UVmdN83tvbp8QrJsezjOaUo384KuH2UwJPkdkY8DlakadA3ASCD4s09fHeghDp984Vspr7qw0');
-        }
-        .slide:nth-child(6) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipOoggPRvqlZfG173DxT_7Lrss-dNs--Oqg0_QEj');
-        }
-        .slide:nth-child(7) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipOoggPRvqlZfG173DxT_7Lrss-dNs--Oqg0_QEj');
-        }
-        .slide:nth-child(8) {
-            background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwfciF3fGghdPupdFA_ExTZnpMux75hnEcKWsmYWir4JNolsc5RKnT0PQkdsH6VWBd5u2n57UMx5id-Q_O8NICoco6xNQCy6L0ax-cpk2syrSRYtazP0ejVVMmRM59fBQ_Ba-o3Ow');
-        }
-        .slide:nth-child(9) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipMll49zWrs_yFYG8cAVAX01SRvHnZqOXujC52t0');
-        }
-        .slide:nth-child(10) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipNa2Z4V-cK4-B3v07-6Yk57FrV2EgNdSDfqdO2Q');
-        }
-        .slide:nth-child(11) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipNa2Z4V-cK4-B3v07-6Yk57FrV2EgNdSDfqdO2Q');
-        }
-        .slide:nth-child(12) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipMPmRvimusXdG_DaXMZMsJy7LrPNPD9g_JEKiqK');
-        }
-        .slide:nth-child(13) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipNjHOIqqZT6e0O9OUwhxyy3Gmubsawg8gvTIrvG');
-        }
-        .slide:nth-child(14) {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipNjHOIqqZT6e0O9OUwhxyy3Gmubsawg8gvTIrvG');
-        }
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #fff;
-            z-index: 2;
-        }
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
+/* CONTACT */
+.contact{
+  background:#fff;
+  margin:16px;
+  padding:16px;
+  border-radius:14px;
+}
+.contact p{
+  font-size:14px;
+  margin-bottom:6px;
+}
 
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: #fff;
-        }
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        .about-text {
-            flex: 1;
-        }
-        .about-text p {
-            margin-bottom: 1rem;
-        }
-        .about-image {
-            flex: 1;
-        }
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-        }
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:16px;
+  right:16px;
+  background:#25d366;
+  color:white;
+  padding:12px 16px;
+  border-radius:50px;
+  text-decoration:none;
+  font-size:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
 
-        /* Facilities Section */
-        .facilities {
-            padding: 80px 0;
-            background: #f9f9f9;
-        }
-        .facilities-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .facility-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .facility-card:hover {
-            transform: translateY(-10px);
-        }
-        .facility-icon {
-            font-size: 3rem;
-            color: #2d5016;
-            margin-bottom: 20px;
-        }
-        .facility-card h3 {
-            margin-bottom: 15px;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 0;
-            background: #fff;
-        }
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .gallery img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        /* Location Section */
-        .location {
-            padding: 80px 0;
-            background: #f9f9f9;
-        }
-        .map-container {
-            text-align: center;
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-            border-radius: 10px;
-        }
-
-        /* Booking Section */
-        #booking {
-            padding: 80px 0;
-            background: #fff;
-        }
-        #booking form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: grid;
-            gap: 20px;
-        }
-        #booking input, #booking textarea {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        #booking button {
-            padding: 12px;
-            background: #2d5016;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        #booking button:hover {
-            background: #1e3a0f;
-        }
-
-        /* Footer */
-        footer {
-            background: #2d5016;
-            color: #fff;
-            padding: 40px 0;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-        .footer-section h3 {
-            margin-bottom: 20px;
-        }
-        .contact-info li {
-            list-style: none;
-            margin-bottom: 10px;
-        }
-        .social-icons a {
-            color: #fff;
-            margin-right: 15px;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: #ddd;
-        }
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #fff;
-            padding-top: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 1rem 0;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
-            nav ul.show {
-                display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
-        }
-    </style>
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+  color:#777;
+}
+</style>
 </head>
+
 <body>
-    <!-- ===================== Header ===================== -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo"><i class="fas fa-home"></i> Sukoon Farm Stay</a>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#facilities">Facilities</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#location">Location</a></li>
-                    <li><a href="#booking">Booking</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
-        </div>
-    </header>
 
-    <!-- ===================== Hero Section with Slideshow ===================== -->
-    <section class="hero">
-        <div class="slideshow">
-            <div class="slide active"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-        </div>
-        <div class="hero-content">
-            <h1>Discover Serenity at Sukoon Farm Stay</h1>
-            <p>Best Farm Stay In Gurugram – Experience Nature and Peace</p>
-            <a href="#booking" class="btn">Book Your Stay</a>
-        </div>
-    </section>
+<header>
+  <h1>🌿 Jungle Spring Resort</h1>
+  <div class="menu">☰</div>
+</header>
 
-    <!-- ===================== About Section ===================== -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-title"><h2>About Our Farm Stay</h2></div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Nestled in the lush landscapes of Gurugram, Sukoon Farm Stay offers a unique blend of rural charm and modern comfort. Our farm stay preserves the essence of countryside living while providing luxurious accommodations.</p>
-                    <p>Each room is designed to reflect farm life with rustic decor, private balconies, and stunning views of the fields and greenery. Enjoy farm-fresh meals, cultural activities, and proximity to urban attractions.</p>
-                    <p>Whether you're seeking a peaceful retreat or an adventurous getaway, Sukoon Farm Stay is the perfect destination for families, couples, and groups.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipOPAqqaTKvZuLK7bMY4DbjaLBCoZX3ngu2nyzdb" alt="Sukoon Farm Stay">
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+  <div class="hero-card">
+    <h2>Nature. Adventure. Relaxation.</h2>
+    <p>Experience the joy of jungle stays & outdoor fun</p>
+    <button>View More</button>
+  </div>
+</section>
 
-    <!-- ===================== Facilities Section ===================== -->
-    <section id="facilities" class="facilities">
-        <div class="container">
-            <div class="section-title"><h2>Our Facilities</h2></div>
-            <div class="facilities-container">
-                <div class="facility-card">
-                    <div class="facility-icon"><i class="fas fa-car"></i></div>
-                    <h3>Free Parking</h3>
-                    <p>Secure parking available for all guests at no extra charge.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon"><i class="fas fa-utensils"></i></div>
-                    <h3>Farm-to-Table Dining</h3>
-                    <p>Authentic farm-fresh meals prepared with local ingredients.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon"><i class="fas fa-music"></i></div>
-                    <h3>Farm Activities</h3>
-                    <p>Enjoy milking cows, feeding animals, and farm tours.</p>
-                </div>
-                <div class="facility                <div class="facility-card">
-                    <div class="facility-icon"><i class="fas fa-hiking"></i></div>
-                    <h3>Nature Walks</h3>
-                    <p>Explore the surrounding fields and forests with guided walks.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon"><i class="fas fa-spa"></i></div>
-                    <h3>Relaxation Areas</h3>
-                    <p>Unwind in our peaceful gardens and open spaces.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon"><i class="fas fa-tree"></i></div>
-                    <h3>Eco-Friendly Stays</h3>
-                    <p>Sustainable practices with farm conservation and nature preservation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="section-title">DAY PACKAGES</div>
 
-    <!-- ===================== Gallery Section ===================== -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <div class="section-title"><h2>Gallery</h2></div>
-            <div class="gallery-container">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipOPAqqaTKvZuLK7bMY4DbjaLBCoZX3ngu2nyzdb" alt="Sukoon Farm Stay Image 1" onclick="openLightbox(this.src)">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipP5sH4CYzGnhTjYak1s2eF2FFbrif-1x_JDBzTN" alt="Sukoon Farm Stay Image 2" onclick="openLightbox(this.src)">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipNmyJMYoUkPUy0sRFDLtPcHOs0dISluKediggnt" alt="Sukoon Farm Stay Image 3" onclick="openLightbox(this.src)">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipPTh-dgonDh0fGsBCbMVCdKh04647Gs9Tz6RZ4a" alt="Sukoon Farm Stay Image 4" onclick="openLightbox(this.src)">
-                <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSykoIfgm5gyOfMoKAZPon8FV-WIkYJ7f9h_MgJE21OapAQekqooisuFilZeza4UVmdN83tvbp8QrJsezjOaUo384KuH2UwJPkdkY8DlakadA3ASCD4s09fHeghDp984Vspr7qw0" alt="Sukoon Farm Stay Image 5" onclick="openLightbox(this.src)">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipOoggPRvqlZfG173DxT_7Lrss-dNs--Oqg0_QEj" alt="Sukoon Farm Stay Image 6" onclick="openLightbox(this.src)">
-                <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwfciF3fGghdPupdFA_ExTZnpMux75hnEcKWsmYWir4JNolsc5RKnT0PQkdsH6VWBd5u2n57UMx5id-Q_O8NICoco6xNQCy6L0ax-cpk2syrSRYtazP0ejVVMmRM59fBQ_Ba-o3Ow" alt="Sukoon Farm Stay Image 7" onclick="openLightbox(this.src)">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipMll49zWrs_yFYG8cAVAX01SRvHnZqOXujC52t0" alt="Sukoon Farm Stay Image 8" onclick="openLightbox(this.src)">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipNa2Z4V-cK4-B3v07-6Yk57FrV2EgNdSDfqdO2Q" alt="Sukoon Farm Stay Image 9" onclick="openLightbox(this.src)">
-            </div>
-            <div id="lightbox" class="lightbox">
-                <span class="close" onclick="closeLightbox()">&times;</span>
-                <img id="lightbox-img" src="">
-            </div>
-        </div>
-    </section>
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf">
+  <div class="card-body">
+    <h3>Pool Paradise</h3>
+    <p>Enjoy a refreshing day with splash & fun</p>
+  </div>
+</div>
 
-    <!-- ===================== Location Section ===================== -->
-    <section id="location" class="location">
-        <div class="container">
-            <div class="section-title"><h2>Our Location</h2></div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.000000000000!2d77.2136373!3d28.4721296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce16812d1108f:0x3128be115e3aaffe!2sSukoon+Farm+Stay!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+  <div class="card-body">
+    <h3>Outlander</h3>
+    <p>Adventure activities for thrill seekers</p>
+  </div>
+</div>
 
-    <!-- ===================== Booking Section ===================== -->
-    <section id="booking">
-        <div class="container">
-            <div class="section-title"><h2>Book Your Stay</h2></div>
-            <form id="booking-form">
-                <input type="text" id="name" placeholder="Full Name" required>
-                <input type="email" id="email" placeholder="Email Address" required>
-                <input type="tel" id="phone" placeholder="Phone Number" required>
-                <textarea id="message" placeholder="Your Message or Requirements"></textarea>
-                <button type="submit">Submit Booking Request</button>
-            </form>
-            <p id="message" style="text-align: center; margin-top: 20px;"></p>
-        </div>
-    </section>
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6">
+  <div class="card-body">
+    <h3>Ranger</h3>
+    <p>Perfect for groups & team outings</p>
+  </div>
+</div>
 
-    <!-- ===================== Footer ===================== -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-phone"></i> +91-XXXX-XXXXXX</li>
-                        <li><i class="fas fa-envelope"></i> info@sukoonfarmstay.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Gurugram, Haryana, India</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <p>Follow us on social media for updates and offers</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Sukoon Farm Stay. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+  <div class="card-body">
+    <h3>Dare Devil</h3>
+    <p>High-energy adventure experiences</p>
+  </div>
+</div>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+<div class="section-title">CONTACT</div>
 
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
+<div class="contact">
+  <p><b>📍 Location:</b> Jungle Area, Maharashtra</p>
+  <p><b>📞 Phone:</b> +91 9XXXXXXXXX</p>
+  <p><b>📧 Email:</b> info@junglespringresort.com</p>
 
-        // Slideshow
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+  <iframe
+    src="https://www.google.com/maps?q=lonavala&output=embed"
+    width="100%" height="200"
+    style="border:0;border-radius:12px;margin-top:10px;"
+    loading="lazy">
+  </iframe>
+</div>
 
-        // Lightbox for gallery
-        function openLightbox(src) {
-            document.getElementById('lightbox').style.display = 'flex';
-            document.getElementById('lightbox-img').src = src;
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
+<a class="whatsapp" href="https://wa.me/919999999999" target="_blank">
+  WhatsApp
+</a>
 
-        // Booking form validation
-        document.getElementById('booking-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            const msgElement = document.getElementById('message');
+<footer>
+  © 2026 Jungle Spring Resort • Static Project Website
+</footer>
 
-            if (name && email && phone) {
-                msgElement.textContent = 'Booking request submitted! We\'ll contact you soon.';
-                msgElement.style.color = 'green';
-            } else {
-                msgElement.textContent = 'Please fill all required fields.';
-                msgElement.style.color = 'red';
-            }
-        });
-    </script>
 </body>
 </html>
